@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: cal.util
+---
+testFramework: junit
+sourceLanguage: java
