@@ -39,6 +39,7 @@ public class CalController {
     calendar.getProperties().add(new ProdId("-//Ben Fortuna//iCal4j 1.0//EN"));
     calendar.getProperties().add(Version.VERSION_2_0);
     calendar.getProperties().add(CalScale.GREGORIAN);
+    calendar.getProperties().add(new Name("Mastering DevOps"));
 
     Integer year = 2019;
     Integer startHour = 20;
