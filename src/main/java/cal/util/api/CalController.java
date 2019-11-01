@@ -1,7 +1,7 @@
 package cal.util.api;
 
-import cal.util.Event;
-import cal.util.EventDate;
+import cal.util.model.Event;
+import cal.util.model.EventDate;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;

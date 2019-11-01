@@ -1,4 +1,4 @@
-package cal.util;
+package cal.util.model;
 
 import lombok.Builder;
 import lombok.Getter;
