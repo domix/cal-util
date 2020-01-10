@@ -22,7 +22,7 @@ public class CalController {
   private Map<String, String> calendars;
 
   public CalController() {
-    calendars = Map.of("devops_2019", devops2019());
+    calendars = Map.of("devops_2019", devops2019(), "cursos2020", cursos2020());
   }
 
   @Get("/{id}")
@@ -36,12 +36,47 @@ public class CalController {
     return HttpResponse.notFound("");
   }
 
+  public String cursos2020() {
+    Calendar calendar = createCalendar("Cursos 2020");
+    Integer year = 2020;
+    Integer startHour = 9;
+    Integer endHour = 18;
+
+    String eventName = "Curso Microservicios (Buró de Crédito - Grupo 1)";
+    Integer i = 1;
+
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 13, APRIL, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 14, APRIL, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 15, APRIL, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 16, APRIL, year, startHour, endHour)));
+
+    eventName = "Curso Contenedores (Buró de Crédito - Grupo 1)";
+    i = 1;
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 20, APRIL, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 21, APRIL, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 22, APRIL, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 23, APRIL, year, startHour, endHour)));
+
+
+    eventName = "Curso Microservicios (Buró de Crédito - Grupo 2)";
+    i = 1;
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 11, MAY, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 12, MAY, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 13, MAY, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 14, MAY, year, startHour, endHour)));
+
+    eventName = "Curso Contenedores (Buró de Crédito - Grupo 2)";
+    i = 1;
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 18, MAY, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 19, MAY, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 20, MAY, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 21, MAY, year, startHour, endHour)));
+
+    return calendar.toString();
+  }
+
   public String devops2019() {
-    Calendar calendar = new Calendar();
-    calendar.getProperties().add(new ProdId("-//Ben Fortuna//iCal4j 1.0//EN"));
-    calendar.getProperties().add(Version.VERSION_2_0);
-    calendar.getProperties().add(CalScale.GREGORIAN);
-    calendar.getProperties().add(new Name("Mastering DevOps"));
+    Calendar calendar = createCalendar("Mastering DevOps");
 
     Integer year = 2019;
     Integer startHour = 20;
@@ -52,7 +87,6 @@ public class CalController {
     String eventName = "Curso Mastering DevOps";
     Integer i = 1;
 
-    //calendar.getComponents().add(christmas);
     calendar.getComponents().add(vEvent(clase(eventName, "La clase " + i++, 29, october, year, startHour, endHour)));
     calendar.getComponents().add(vEvent(clase(eventName, "La clase " + i++, 31, october, year, startHour, endHour)));
 
@@ -71,6 +105,15 @@ public class CalController {
     calendar.getComponents().add(vEvent(clase(eventName, "La clase " + i++, 7, december, year, 9, 18)));
 
     return calendar.toString();
+  }
+
+  private Calendar createCalendar(String nombreCurso) {
+    Calendar calendar = new Calendar();
+    calendar.getProperties().add(new ProdId("-//Ben Fortuna//iCal4j 1.0//EN"));
+    calendar.getProperties().add(Version.VERSION_2_0);
+    calendar.getProperties().add(CalScale.GREGORIAN);
+    calendar.getProperties().add(new Name(nombreCurso));
+    return calendar;
   }
 
 
