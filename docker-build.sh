@@ -1,5 +1,5 @@
 #!/bin/sh
-docker build . -t circulo7/cal-util
+docker build . -t circulo7/cal-util:0.0.2
 echo
 echo
 echo "To run the docker container execute:"
