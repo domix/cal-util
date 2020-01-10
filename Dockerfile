@@ -10,7 +10,7 @@
 #ENTRYPOINT ["./cal-util"]
 
 
-FROM adoptopenjdk:11.0.4_11-jre-openj9-0.15.1
+FROM adoptopenjdk:11.0.5_10-jre-openj9-0.17.0-bionic
 
 EXPOSE 8080
 
