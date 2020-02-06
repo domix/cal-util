@@ -44,7 +44,7 @@ dependencies {
   testImplementation "io.micronaut.test:micronaut-test-junit5"
   testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine"
 
-  implementation 'org.mnode.ical4j:ical4j:3.0.11'
+  implementation 'org.mnode.ical4j:ical4j:3.0.13'
 }
 
 test.classpath += configurations.developmentOnly
