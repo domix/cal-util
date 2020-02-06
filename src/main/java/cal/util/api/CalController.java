@@ -72,6 +72,28 @@ public class CalController {
     calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 20, MAY, year, startHour, endHour)));
     calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 21, MAY, year, startHour, endHour)));
 
+
+    eventName = "Desarrollo de Microservicios Cloud Native (Abierto)";
+    i = 1;
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 7, MARCH, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 21, MARCH, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 28, MARCH, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 4, APRIL, year, startHour, endHour)));
+
+    eventName = "Docker containers y Orquestación con Kubernetes (Abierto)";
+    i = 1;
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 25, APRIL, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 2, MAY, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 9, MAY, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 16, MAY, year, startHour, endHour)));
+
+    eventName = "Mastering DevOps (Abierto)";
+    i = 1;
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 30, MAY, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 6, JUNE, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 13, JUNE, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 20, JUNE, year, startHour, endHour)));
+
     return calendar.toString();
   }
 
