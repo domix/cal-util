@@ -42,8 +42,24 @@ public class CalController {
     Integer startHour = 9;
     Integer endHour = 18;
 
-    String eventName = "Curso Microservicios (Buró de Crédito - Grupo 1)";
-    Integer i = 1;
+    String eventName;
+    Integer i;
+
+    eventName = "Jenkins (HSBC)";
+    i = 1;
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 18, FEBRUARY, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 19, FEBRUARY, year, startHour, endHour)));
+
+
+    eventName = "Arquitectura Moderna (Grupo Modelo)";
+    i = 1;
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 24, FEBRUARY, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 25, FEBRUARY, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 26, FEBRUARY, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 27, FEBRUARY, year, startHour, endHour)));
+
+    eventName = "Curso Microservicios (Buró de Crédito - Grupo 1)";
+    i = 1;
 
     calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 13, APRIL, year, startHour, endHour)));
     calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 14, APRIL, year, startHour, endHour)));
@@ -75,24 +91,24 @@ public class CalController {
 
     eventName = "Desarrollo de Microservicios Cloud Native (Abierto)";
     i = 1;
-    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 7, MARCH, year, startHour, endHour)));
-    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 21, MARCH, year, startHour, endHour)));
-    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 28, MARCH, year, startHour, endHour)));
-    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 4, APRIL, year, startHour, endHour)));
-
-    eventName = "Docker containers y Orquestación con Kubernetes (Abierto)";
-    i = 1;
     calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 25, APRIL, year, startHour, endHour)));
     calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 2, MAY, year, startHour, endHour)));
     calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 9, MAY, year, startHour, endHour)));
     calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 16, MAY, year, startHour, endHour)));
 
-    eventName = "Mastering DevOps (Abierto)";
+    eventName = "Docker containers y Orquestación con Kubernetes (Abierto)";
     i = 1;
     calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 30, MAY, year, startHour, endHour)));
     calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 6, JUNE, year, startHour, endHour)));
     calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 13, JUNE, year, startHour, endHour)));
     calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 20, JUNE, year, startHour, endHour)));
+
+    eventName = "Mastering DevOps (Abierto)";
+    i = 1;
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 11, JULY, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 18, JULY, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 25, JULY, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "Clase " + i++, 1, AUGUST, year, startHour, endHour)));
 
     return calendar.toString();
   }
@@ -103,28 +119,25 @@ public class CalController {
     Integer year = 2019;
     Integer startHour = 20;
     Integer endHour = 22;
-    Integer october = OCTOBER;
-    Integer november = NOVEMBER;
-    Integer december = DECEMBER;
     String eventName = "Curso Mastering DevOps";
-    Integer i = 1;
+    int i = 1;
 
-    calendar.getComponents().add(vEvent(clase(eventName, "La clase " + i++, 29, october, year, startHour, endHour)));
-    calendar.getComponents().add(vEvent(clase(eventName, "La clase " + i++, 31, october, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "La clase " + i++, 29, OCTOBER, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "La clase " + i++, 31, OCTOBER, year, startHour, endHour)));
 
-    calendar.getComponents().add(vEvent(clase(eventName, "La clase " + i++, 5, november, year, startHour, endHour)));
-    calendar.getComponents().add(vEvent(clase(eventName, "La clase " + i++, 7, november, year, startHour, endHour)));
-    calendar.getComponents().add(vEvent(clase(eventName, "La clase " + i++, 11, november, year, startHour, endHour)));
-    calendar.getComponents().add(vEvent(clase(eventName, "La clase " + i++, 14, november, year, startHour, endHour)));
-    calendar.getComponents().add(vEvent(clase(eventName, "La clase " + i++, 19, november, year, startHour, endHour)));
-    calendar.getComponents().add(vEvent(clase(eventName, "La clase " + i++, 21, november, year, startHour, endHour)));
-    calendar.getComponents().add(vEvent(clase(eventName, "La clase " + i++, 26, november, year, startHour, endHour)));
-    calendar.getComponents().add(vEvent(clase(eventName, "La clase " + i++, 28, november, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "La clase " + i++, 5, NOVEMBER, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "La clase " + i++, 7, NOVEMBER, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "La clase " + i++, 11, NOVEMBER, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "La clase " + i++, 14, NOVEMBER, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "La clase " + i++, 19, NOVEMBER, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "La clase " + i++, 21, NOVEMBER, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "La clase " + i++, 26, NOVEMBER, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "La clase " + i++, 28, NOVEMBER, year, startHour, endHour)));
 
-    calendar.getComponents().add(vEvent(clase(eventName, "La clase " + i++, 3, december, year, startHour, endHour)));
-    calendar.getComponents().add(vEvent(clase(eventName, "La clase " + i++, 5, december, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "La clase " + i++, 3, DECEMBER, year, startHour, endHour)));
+    calendar.getComponents().add(vEvent(clase(eventName, "La clase " + i++, 5, DECEMBER, year, startHour, endHour)));
 
-    calendar.getComponents().add(vEvent(clase(eventName, "La clase " + i++, 7, december, year, 9, 18)));
+    calendar.getComponents().add(vEvent(clase(eventName, "La clase " + i++, 7, DECEMBER, year, 9, 18)));
 
     return calendar.toString();
   }
