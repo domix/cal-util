@@ -1,4 +1,6 @@
-#FROM oracle/graalvm-ce:19.2.0.1 as graalvm
+FROM oracle/graalvm-ce:19.3.1-java11 as graalvm
+
+
 #COPY . /home/app/cal-util
 #WORKDIR /home/app/cal-util
 #RUN gu install native-image
