@@ -23,10 +23,8 @@ dependencies {
   annotationProcessor "org.projectlombok:lombok:${ lombokVersion }"
   testAnnotationProcessor "org.projectlombok:lombok:${ lombokVersion }"
   annotationProcessor platform("io.micronaut:micronaut-bom:$micronautVersion")
-  annotationProcessor "io.micronaut:micronaut-graal"
   annotationProcessor "io.micronaut:micronaut-inject-java"
   annotationProcessor "io.micronaut:micronaut-validation"
-  compileOnly "com.oracle.substratevm:svm"
   compileOnly "org.projectlombok:lombok:${ lombokVersion }"
   implementation platform("io.micronaut:micronaut-bom:$micronautVersion")
   implementation "io.micronaut:micronaut-http-client"
