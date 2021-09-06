@@ -5,17 +5,23 @@ import cal.util.model.EventDate;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
-import net.fortuna.ical4j.model.*;
+import net.fortuna.ical4j.model.Calendar;
+import net.fortuna.ical4j.model.TimeZone;
+import net.fortuna.ical4j.model.TimeZoneRegistry;
+import net.fortuna.ical4j.model.TimeZoneRegistryFactory;
 import net.fortuna.ical4j.model.component.VEvent;
 import net.fortuna.ical4j.model.component.VTimeZone;
 import net.fortuna.ical4j.model.property.*;
 import net.fortuna.ical4j.util.RandomUidGenerator;
 import net.fortuna.ical4j.util.UidGenerator;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.GregorianCalendar;
 import java.util.Map;
 
 import static java.util.Calendar.*;
+import static net.fortuna.ical4j.model.Property.TZID;
 
 @Controller("/v1/calendars")
 public class CalController {
@@ -30,7 +36,7 @@ public class CalController {
 
     if (calendars.containsKey(id)) {
       return HttpResponse.ok(calendars.get(id))
-        .contentType("text/calendar;charset=UTF-8");
+          .contentType("text/calendar;charset=UTF-8");
     }
 
     return HttpResponse.notFound("");
@@ -154,30 +160,30 @@ public class CalController {
 
   private Event clase(String eventName, String description, Integer day, Integer month, Integer year, Integer startHour, Integer endHour) {
     EventDate start = EventDate.builder()
-      .dayOfMonth(day)
-      .month(month)
-      .year(year)
-      .hourOfDay(startHour)
-      .minute(0)
-      .second(0)
-      .build();
+        .dayOfMonth(day)
+        .month(month)
+        .year(year)
+        .hourOfDay(startHour)
+        .minute(0)
+        .second(0)
+        .build();
 
     EventDate end = EventDate.builder()
-      .dayOfMonth(day)
-      .month(month)
-      .year(year)
-      .hourOfDay(endHour)
-      .minute(0)
-      .second(0)
-      .build();
+        .dayOfMonth(day)
+        .month(month)
+        .year(year)
+        .hourOfDay(endHour)
+        .minute(0)
+        .second(0)
+        .build();
 
     Event event = Event.builder()
-      .name(eventName)
-      .description(description)
-      .start(start)
-      .end(end)
-      .timezone("America/Mexico_City")
-      .build();
+        .name(eventName)
+        .description(description)
+        .start(start)
+        .end(end)
+        .timezone("America/Mexico_City")
+        .build();
 
     return event;
   }
@@ -188,17 +194,19 @@ public class CalController {
     TimeZone timezone = registry.getTimeZone(event.getTimezone());
     VTimeZone tz = timezone.getVTimeZone();
 
-    java.util.Calendar startDate = createCalendar(timezone, event.getStart());
-    java.util.Calendar endDate = createCalendar(timezone, event.getEnd());
+    final var startDate = createCalendar(timezone, event.getStart());
+    final var endDate = createCalendar(timezone, event.getEnd());
 
     // Create the event
     String eventName = event.getName();
-    DateTime start = new DateTime(startDate.getTime());
-    DateTime end = new DateTime(endDate.getTime());
+
+    final var start = convertToLocalDateTimeViaInstant(startDate.getTime());
+    final var end = convertToLocalDateTimeViaInstant(endDate.getTime());
+    final var property = tz.getProperty(TZID).orElse(null);
 
     VEvent meeting = new VEvent(start, end, eventName);
     meeting.getProperties().add(new Description(event.getDescription()));
-    meeting.getProperties().add(tz.getTimeZoneId());
+    meeting.getProperties().add(property);
     UidGenerator ug = new RandomUidGenerator();
     Uid uid = ug.generateUid();
     meeting.getProperties().add(uid);
@@ -217,5 +225,11 @@ public class CalController {
     calendar.set(SECOND, event.getSecond());
 
     return calendar;
+  }
+
+  public LocalDateTime convertToLocalDateTimeViaInstant(java.util.Date dateToConvert) {
+    return dateToConvert.toInstant()
+        .atZone(ZoneId.systemDefault())
+        .toLocalDateTime();
   }
 }

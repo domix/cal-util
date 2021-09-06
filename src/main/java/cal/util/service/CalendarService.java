@@ -1,9 +1,9 @@
 package cal.util.service;
 
+import jakarta.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 import org.yaml.snakeyaml.Yaml;
 
-import javax.inject.Singleton;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
